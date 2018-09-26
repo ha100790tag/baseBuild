@@ -230,3 +230,26 @@ th {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
+
+.btn,
+.alt-btn {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.square {
+  width: 150px;
+  height: 150px;
+  background-color: red;
+}
+
+.btn {
+  color: green;
+  border: 2px solid green;
+  padding: 15px;
+  border-radius: 50%;
+}
+
+.alt-btn {
+  height: 300px;
+}

@@ -1,0 +1,32 @@
+%inline-block {
+	display: inline-block;
+	vertical-align: top;
+}
+
+@mixin size($width, $height: $width) {
+	width: $width;
+	height: $height;
+}
+
+@mixin btn-color($color) {
+	color: $color;
+	border: 2px solid $color;
+}
+
+.square {
+	@include size(150px);
+	background-color: $red;
+}
+
+.btn {
+	@include btn-color($link-color);
+	@extend %inline-block;
+	padding: 15px;
+	border-radius: 50%;
+}
+
+
+.alt-btn {
+	@extend %inline-block;
+	height: 150px + 150px;
+}

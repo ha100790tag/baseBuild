@@ -14,7 +14,107 @@ body {
 
 .container {
 	max-width: 1280px;
-	padding: 0 15px;
+	padding: 0 #{$grid-gutter-width / 2};
 	margin: 0 auto;
 }
 
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -#{$grid-gutter-width / 2};
+}
+
+.col {
+  padding: 0 #{$grid-gutter-width / 2};
+  flex-grow: 0;
+  flex-shrink: 0;
+}
+
+@for $i from 1 through $grid-count {
+	.col-#{$i} {
+		width: 100% / $grid-count * $i;
+	}
+}
+
+
+@each $item, $breakpoint in $breakpoints {
+	@media all and (min-width: $breakpoint) {
+		@for $i from 1 through $grid-count {
+			.col-#{$item}-#{$i} {
+				width: 100% / $grid-count * $i;
+			}
+		}
+	}
+}
+
+.vertical-offset {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.template {
+  min-height: 200px;
+}
+
+.red {
+  background-color: red;
+}
+
+.green {
+  background-color: green;
+}
+
+.blue {
+  background-color: blue;
+}
+
+.yellow {
+  background-color: yellow;
+}
+
+.common-section {
+	background: #675658;
+}
+
+.video-holder {
+	position: relative;
+
+	&:before {
+		content: '';
+		display: block;
+		padding-top: 56.25%;
+	}
+
+
+	iframe {
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		position: absolute;
+	}
+}
+
+.btn-list {
+	list-style-type: none;
+
+	li {
+		margin-bottom: 20px;
+	}
+}
+
+.btn {
+	display: inline-block;
+	vertical-align: top;
+	padding: 10px 15px;
+	text-decoration: none;
+	background: red;
+}
+
+.bordered {
+	border: 2px solid black;
+}
+
+.rounded {
+	border-radius: 6px; 
+}

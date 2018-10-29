@@ -1,14 +1,13 @@
-$base-font-family: Georgia;
-$secondary-font-family: Arial;
-$headings-font-family: "Times New Roman", monospace;
+$base-font-family: 'Montserrat', sans-serif;
 
-$gray: #626262;
-$gray-light: #b4ad9e;
-$gray-lighter: #f0f0f0;
-$red: #ea1313;
 $black: #000;
-$pink-gray: #f6f2f2;
+$grid-gutter-width: 30px;
+$grid-count: 12;
 
-$base-text-color: $gray;
-$link-color: $gray;
-$link-hover-color: $red;
+$breakpoints: (
+	sm: 768px,
+	md: 1024px,
+	lg: 1200px
+);
+
+$base-text-color: $black;

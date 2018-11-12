@@ -6,11 +6,88 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Agency</title>
+<!--     <style>
+        .div-wrapper {
+            display: flex;
+            flex-direction: row;
+        }
+        .div-wrapper * {
+            height: 100px;
+            width: 300px;
+            margin: 10px 25px;
+        }
+        .first-block {
+            background: linear-gradient(#e66465, #9198e5);
+        }
+        .second-block {
+            background: linear-gradient(#6066ca, #f7f90a);
+            position: relative;
+        }
+        .second-block .coordinates-block{
+            position: absolute;
+            top: 100%;
+        }
+        .third-block {
+            background: linear-gradient(#e50202, #feffa0);
+            height: 250px;
+        }
+    </style> -->
     <link rel="stylesheet" href="style.min.css">
 </head>
 <body>
+    <form action="#">
+        <input type="text" id="input1" name="text" placeholder="text" value="Мюнхен">
+        <input type="email" id="input2" name="email" placeholder="email" value="asfa@xfbvhnfcg.sdf">
+        <input type="date" id="input3" name="date" placeholder="date">
+        <input type="number" id="input4" name="number" max="1000" min="0" step="5" placeholder="number" value="45">
+        <input type="range" min="1" max="100">
+        <div class="checkbox-holder">
+            
+            <input type="checkbox" id="input5" name="mySelection" value="1" checked>
+            <label class="checkbox-label" for="input5">input5</label>
+            
+            <input type="checkbox" id="input6" name="mySelection" value="2">
+            <label  class="checkbox-label" for="input6">input6</label>
+            
+            <input type="checkbox" id="input7" name="mySelection" value="3">
+            <label class="checkbox-label" for="input7">input7</label>
+            
+            <input type="checkbox" id="input8" name="mySelection" value="4">
+            <label class="checkbox-label" for="input8">input8</label>
+            
+            <input type="checkbox" id="input9" name="mySelection" value="5">
+            <label class="checkbox-label" for="input9">input9</label>
+        </div>
+        <div class="radio-holder">
+            <input type="radio" id="input10" name="radio" value="1">
+            <label class="radio-label" for="input10">radio1</label>
+
+            <input type="radio" id="input11" name="radio" value="2">
+            <label class="radio-label" for="input11">radio2</label>
+
+            <input type="radio" id="input12" name="radio" value="3">
+            <label class="radio-label" for="input12">radio3</label>
+
+            <input type="radio" id="input13" name="radio" value="4">
+            <label class="radio-label" for="input13">radio4</label>
+
+            <input type="radio" id="input14" name="radio" value="5">
+            <label class="radio-label" for="input14">radio5</label>
+
+        </div>
+        <textarea name="textarea" id="input15" cols="30" rows="10"></textarea>
+    </form>
+<!--     <div class="div-wrapper">
+        <div class='first-block'>
+        </div>
+        <div class='second-block'>
+            <div id="coordinates" class="coordinates-block"></div>
+        </div>
+        <div class='third-block'>
+        </div>
+    </div> -->
     <div id="wrapper">
-        <div class="header-holder">
+<!--         <div class="header-holder">
             <div class="container">
                 <header class="header">
                     <nav>
@@ -31,22 +108,28 @@
                     <h1>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda dolorum, a ex, voluptatum quae facere tempore! Reprehenderit eligendi sed, minima sapiente beatae officia, repellendus suscipit explicabo vitae porro cum dolor?</h1>
                 </div>
             </section>
-        </div>
+        </div> -->
         <main role="main">
-            <section class="subscribe common-section block-inverse text-center bg-img" style="background-image: url('images/img-bg-1.jpg'), url(images/img-1.jpg);">
+            <section>
+                <div class="container">
+                    
+                </div>
+            </section>
+
+<!--             <section class="subscribe common-section block-inverse text-center bg-img" style="background-image: url('images/img-bg-1.jpg'), url(images/img-1.jpg);">
                 <div class="container">
                     <div class="title-holder">
                         <h2>Design tips, tricks, and freebies. Delivered weekly.</h2>
                     </div>
                     <p>Lorem ipsum dolor sit amet, consectetur adipis cing elit, sed do eiusmod.</p>
-                    <form action="#" class="subscribe-form">
-                        <div class="row center">
+                    <form action="#" class="subscribe-form" id="form1">
+                        <div id='lorem-ipsum2' class="row center">
                             <div class="form-item">
-                                <input type="email" placeholder='Email Address...'>
+                                <input type="email" name="email" id='lorem-ipsum' placeholder='Email Address...'>
                             </div>
                             <input type="submit" value="Subscribe" class="btn">
                         </div>
-                    </form>
+                    </form> -->
 <!--                     <form action="#" class="subscribe-form">
                         <fieldset>
                             <legend>имя</legend>
@@ -81,14 +164,44 @@
                         <button type="reset">button reset</button>
                         <button type="submit">button submit</button>
                     </form> -->
-                </div>
-            </section>
+<!--                 </div>
+            </section> -->
         </main>
-        <footer class="footer">
+<!--         <footer class="footer">
             <div class="container">
                 
             </div>
-        </footer>
+        </footer> -->
     </div>
+    <script>
+        const element = document.getElementsByClassName('second-block')[0];
+        const onMouseOverBlock = (event) => {
+            const coordinatesElement = document.getElementById('coordinates');
+            if(event.type === 'mouseover') {
+                const {movementX, movementY} = event;
+                coordinatesElement.innerText = `X position: ${movementX}, Y position: ${movementY}`;
+            } else if (event.type === 'mousemove') {
+                const {offsetX, offsetY} = event;
+                coordinatesElement.innerText = `X position: ${offsetX}, Y position: ${offsetY}`;
+            } else {
+                coordinatesElement.innerText = '';
+            }
+        };
+        element.addEventListener('mousemove', onMouseOverBlock);
+        element.addEventListener('mouseover', onMouseOverBlock);
+        element.addEventListener('mouseleave', onMouseOverBlock);
+        const formValue = {
+            address: {
+                street: 'Pushkina',
+                house: 43
+            },
+            name: {
+                firstName: 'Aleksandr',
+                lastName: 'Tkachenko',
+                mySelection: ['val1', 'val3']
+                myOnlySelection: 
+            }
+        }
+    </script>
 </body>
 </html>

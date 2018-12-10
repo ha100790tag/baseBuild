@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Burger</title>
+	<style>
+
+		body {
+			margin: 0;
+		}
+
+		#wrapper {
+			min-height: 100vh;
+			background-color: beige;
+			position: relative;
+		}
+		.navigation	{
+			flex: 0 0 300px;
+			border-right: 2px solid darksalmon;
+			position: absolute;
+			left: -100%;
+			
+		}
+
+		.inner-menu {
+			display: none;
+		}
+
+		.hide {
+			display: none;
+		}
+
+		.dropdown:hover .inner-menu{
+			display:block;
+		}
+	</style>
+</head>
+<body>
+	<div id="wrapper">
+		<button class="mainBtn">Click me</button>
+		<ul class="navigation">
+			<li><a href="#">Some item</a></li>
+			<li class="dropdown"><a href="#">Another menu</a>
+				<ul class="inner-menu">
+					<li><a href="#">Some inner item</a></li>
+					<li><a href="#">One more inner item</a></li>
+				</ul>
+			</li>
+			<li><a href="#">Third item</a></li>
+			<li><button class="hideNav">Hide navigation</button></li>
+		</ul>
+
+	</div>
+
+	<script>
+			function revealNav() {
+				this.classList.add("hide");
+				var menu = document.querySelector(".navigation");
+				menu.style.left = "0";
+			}
+
+			function hideNav() {
+
+				var menu = document.querySelector(".navigation");
+				menu.style.left = "-100%";
+				var revealButton = document.querySelector(".mainBtn");
+				revealButton.classList.remove("hide");
+			}
+
+			var revealButton = document.querySelector(".mainBtn");
+			revealButton.addEventListener("click", revealNav);
+			
+			var hideButton =  document.querySelector(".hideNav");
+			hideButton.addEventListener("click", hideNav);
+
+			
+	</script>
+</body>
+</html>

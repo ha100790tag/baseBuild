@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Burger</title>
+	<style>
+
+		body {
+			margin: 0;
+		}
+
+		#wrapper {
+			background-color: beige;
+			position: relative;
+		}
+		.navigation	{
+			flex: 0 0 300px;
+			border-right: 2px solid darksalmon;
+			position: absolute;
+			left: -100%;
+			
+		}
+
+		.inner-menu {
+			display: none;
+		}
+
+		.hide {
+			display: none;
+		}
+
+		.dropdown:hover .inner-menu{
+			display:block;
+		}
+
+		.translate{
+			float: right;
+			display: flex;
+		}
+		.translate li{
+			padding-left: 25px;
+			list-style: none;
+		}
+	</style>
+</head>
+<body>
+	<div id="wrapper">
+		
+	</div>
+	
+	<script>
+			function revealNav() {
+				this.classList.add("hide");
+				var menu = document.querySelector(".navigation");
+				menu.style.left = "0";
+			}
+
+			function hideNav() {
+
+				var menu = document.querySelector(".navigation");
+				menu.style.left = "-100%";
+				var revealButton = document.querySelector(".mainBtn");
+				revealButton.classList.remove("hide");
+			}
+
+
+			var vocabularyEn = {
+				button: "Click me",
+				someItem: "Some item",
+				anotherMenu:"Another menu",
+				someInnerItem:"Some inner item",
+				oneMoreInner:"One more inner item",
+				thirdItem:"Third item",
+				hideNav: "Hide navigation",
+
+			}
+			
+			var vocabularyRu = {
+				button: "Нажми меня",
+				someItem: "Некоторая единица",
+				anotherMenu:"Другое меню",
+				someInnerItem:"внутр единица",
+				oneMoreInner:"еще один внутренний элемент",
+				thirdItem:"третий элемент",
+				hideNav: "скрыть",
+			}
+
+			var vocabularyAr = {
+				button: "انقر فوق لي",
+				someItem: "بعض العناصر",
+				anotherMenu:"قائمة أخرى",
+				someInnerItem:"بعض العناصر الداخلية",
+				oneMoreInner:"عنصر داخلي آخر",
+				thirdItem:"البند الثالث",
+				hideNav: "إخفاء التنقل",
+			}
+
+			
+
+			function generateHtml(vocab){
+				var pageHtml = `<button class="mainBtn">${vocab.button}</button><ul class="navigation"><li><a href="#">${vocab.someItem}</a></li><li class="dropdown"><a href="#">${vocab.anotherMenu}</a><ul class="inner-menu"><li><a href="#">${vocab.someInnerItem}</a></li>	<li><a href="#">${vocab.oneMoreInner}</a></li></ul></li><li><a href="#">${vocab.thirdItem}</a></li><li><button class="hideNav">${vocab.hideNav}</button></li></ul>
+				
+		<ul class="translate">
+			<li><a href="#" onclick="selectVocabulary('en')">en</a></li>
+			<li><a href="#" onclick="selectVocabulary('ru')">ru</a></li>
+			<li><a href="#" onclick="selectVocabulary('ar')">arrrr</a></li>
+	</ul>`;
+			document.getElementById('wrapper').innerHTML = pageHtml;
+			var revealButton = document.querySelector(".mainBtn");
+			revealButton.addEventListener("click", revealNav);
+			
+			var hideButton =  document.querySelector(".hideNav");
+			hideButton.addEventListener("click", hideNav);
+			}
+
+			function selectVocabulary(lang){
+				switch(lang){
+					case 'ru' : generateHtml(vocabularyRu);
+					break;
+					case 'ar' :generateHtml(vocabularyAr);
+					break;
+					default: generateHtml(vocabularyEn);
+
+				}
+			}
+				selectVocabulary();
+
+		
+	</script>
+</body>
+</html>

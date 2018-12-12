@@ -8,12 +8,34 @@
     <title>Document</title>
     <link rel="stylesheet" href="./css/bootstrap.css">
     <link rel="stylesheet" href="./css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="js/index.js"></script>
 </head>
 <body>
     <div id="wrapper">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi corporis, deserunt exercitationem illo iure
-            modi, nulla odit quidem quo repellendus, repudiandae sapiente sed totam ut voluptatum? Dolor enim magni
-            sunt?</p>
+        <div class="container">
+            <div id="carousel" class="carousel slide">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="images/1.jpg" alt="First slide">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="images/2.jpg" alt="Second slide">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="images/3.jpg" alt="Third slide">
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
     </div>
 </body>
 </html>

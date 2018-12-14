@@ -1,7 +1,5 @@
 @import "common/reset";
+@import "../../node_modules/bootstrap/scss/functions";
+@import "../../node_modules/bootstrap/scss/variables";
 
-
-.andrew-button {
-	appearance: none !important;
-	background-color: red;
-}
+@import "layout/main";

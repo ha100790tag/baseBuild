@@ -1,8 +1,4 @@
 export default function() {
-	$('.andrew-button').click(e => e.preventDefault());
-	$('#carousel').slick({
-		prevArrow: `<a href='#' class="slick-next andrew-button"></a>`
-	});
 	const data = [
 		{
 			id: 1,

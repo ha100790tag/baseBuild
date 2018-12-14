@@ -12,6 +12,3 @@ $(document).ready(() => {
 		nextArrow: `<div class="slick-next bg-image" style="background-image:url(images/logo.png)"></div>`
 	});
 });
-
-
-

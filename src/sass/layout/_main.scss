@@ -1,0 +1,138 @@
+.andrew-button {
+	appearance: none !important;
+	background-color: red;
+}
+
+$error-text-offset: 5px;
+
+.error-text {
+	opacity: 0;
+	visibility: hidden;
+	position: absolute;
+	top: calc(100% + #{$error-text-offset});
+	left: 0;
+	background-color: $danger;
+	color: $white;
+	transition: .3s visibility, .3s opacity;
+	padding: 5px 10px;
+	border-radius: $border-radius;
+
+	&:before {
+		content: "";
+		position: absolute;
+		bottom: 100%;
+		border-width: 0 5px $error-text-offset 5px;
+		border-style: solid;
+		border-color: transparent transparent $danger transparent;
+	}
+
+	@media (min-width: 768px) {
+		left: $grid-gutter-width / 2;
+	}
+}
+
+
+.subscribe-form {
+	padding: 30px 0;
+
+	> * {
+		@media (min-width: 768px) {
+			float: left;
+			padding: 0 #{$grid-gutter-width / 2};
+		}
+	}
+
+	.input-holder {
+		position: relative;
+		margin-bottom: 20px;
+
+		.form-control {
+
+			&:invalid {
+
+				+ .error-text {
+					visibility: visible;
+					opacity: 1;
+				}
+			}
+		}
+
+		@media (min-width: 768px) {
+			width: calc(100% - 150px);
+		}
+	}
+
+	.submit-holder {
+
+		.btn {
+			width: 100%;
+
+			@media (min-width: 768px) {
+				white-space: nowrap;
+				text-overflow: ellipsis;
+			    overflow: hidden;
+			}
+		}
+
+		@media (min-width: 768px) {
+			width: 150px;
+		}
+	}
+
+	&:after {
+
+		@media (min-width: 768px) {
+			content: '';
+			clear: both;
+			display: table;
+		}
+	}
+
+	@media (min-width: 768px) {
+		margin: 0 -#{$grid-gutter-width / 2};
+	}
+}
+
+.container {
+
+	&.narrow-container {
+
+		@media (min-width: 992px) {
+			max-width: 800px;
+		}
+	}
+}
+
+
+.slick-slide {
+	border-style: dashed;
+	border-color: red;
+	// border-width: attr(borderwidth);
+	// content: 'hi'attr(borderwidth, integer);
+	
+	img {
+		filter: invert(1);
+	}
+}
+
+.intro-block{
+	min-height: 100vh;
+	display: flex;
+	align-items: center;
+	position: relative;
+
+	&:before{
+		position: absolute;
+		content: '';
+		z-index: 1;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background: radial-gradient(ellipse at center, rgba(0,0,0,0) 0%,rgba(0,0,0,0.01) 1%,rgba(0,0,0,0.39) 63%,rgba(0,0,0,1) 100%);
+	} 
+}
+
+.img-shadowed {
+	filter: drop-shadow(0 0 3px rgba(100,0,0,0.5));
+}

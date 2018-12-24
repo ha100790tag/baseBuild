@@ -3,3 +3,182 @@
 @import "../../node_modules/bootstrap/scss/variables";
 
 @import "layout/main";
+
+.btn {
+	transition: color 2s linear 0s, background-color 2s linear 2s, border-color 2s linear 4s;
+	// transition-property: color, background-color, border-color;
+	// transition-duration: 2s;
+	// transition-timing-function: linear;
+	// transition-delay: 0s, 2s, 4s;
+
+	&:hover {
+		color: yellow !important;
+		border-color: red !important;
+		background-color: green !important;
+	}
+}
+
+.custom-btn {
+	transition: border-top-color 0.1s linear 0s, border-right-color 0.1s linear .1s, border-bottom-color 0.1s linear .2s, border-left-color 0.1s linear .3s;
+	// transition-property: color, background-color, border-color;
+	// transition-duration: 2s;
+	// transition-timing-function: linear;
+	// transition-delay: 0s, 2s, 4s;
+	border-radius: 20px;
+	min-width: 100px;
+	max-height: 50px;
+	background-color: transparent;
+	border: 3px solid black;
+	margin: 50px;
+
+	&:hover {
+		border-color: red;
+	}
+}
+
+.snow-container {
+	min-height: 500px;
+	position: relative;
+}
+
+.snow-drop {
+	position: absolute;
+	width: 20px;
+	height: 20px;
+	animation-iteration-count: infinite !important;
+
+	&:nth-child(1) {
+		animation: snow1 4s;
+	}
+
+	&:nth-child(2) {
+		animation: snow2 6s;
+	}
+
+}
+
+.drop-part {
+	transform-origin: center;
+	width: 2px;
+	height: 100%;
+	background-color: green;
+	display: block;
+	position: absolute;
+	animation: bg 4s linear 0s infinite;
+
+	&:nth-child(1) {
+		transform: rotate(45deg);
+		animation-direction: reverse;
+	}
+
+	&:nth-child(2) {
+		transform: rotate(-45deg);
+		animation-delay: .5s;
+	}
+
+	&:nth-child(3) {
+		// width: 4px;
+		transform: translateX(-1px);
+	}
+}
+
+@keyframes bg {
+	0% {
+		background-color: blue;
+	}
+
+	20% {
+		background-color: red;
+	}
+
+	45% {
+		background-color: yellow;
+	}
+
+	65% {
+		background-color: purple;
+	}
+
+	85% {
+		background-color: aqua;
+	}
+
+	100% {
+		background-color: black;
+	}
+}
+
+@keyframes snow1 {
+	0% {
+		left: 36%;
+		top: 0;
+		opacity: 0;
+		transform: rotate(0deg);
+	}
+
+	15% {
+		opacity: 1;
+	}
+
+
+	20% {
+		top: 25%;
+		left: 36%;
+		transform: rotate(45deg);
+	}
+
+	60% {
+		top: 70%;
+		left: 26%;
+		transform: rotate(160deg);
+	}
+
+	85% {
+		opacity: 1;
+	}
+
+	100% {
+		top: 100%;
+		left: 10%;
+		transform: rotate(360deg);
+		opacity: 0;
+	}
+}
+
+@keyframes snow2 {
+	0% {
+		right: 36%;
+		top: 0;
+		opacity: 0;
+		transform: rotate(0deg);
+	}
+
+	15% {
+		opacity: 1;
+		transform:rotate(20deg);
+	}
+
+
+	23% {
+		top: 25%;
+		right: 56%;
+		transform: rotate(45deg);
+	}
+
+	58% {
+		top: 70%;
+		right: 15%;
+		transform: rotate(160deg);
+	}
+
+	85% {
+		opacity: 1;
+	}
+
+	100% {
+		top: 100%;
+		right: 27%;
+		transform: rotate(360deg);
+		opacity: 0;
+	}
+}

@@ -55,6 +55,10 @@
 		animation: snow2 6s;
 	}
 
+	&:nth-child(3) {
+		animation: snow3 10s;
+	}
+
 }
 
 .drop-part {
@@ -180,5 +184,127 @@
 		right: 27%;
 		transform: rotate(360deg);
 		opacity: 0;
+	}
+}
+
+@keyframes snow3 {
+	0% {
+		top: 0;
+		right: 15%;
+		opacity: 0;
+		transform: rotate(0deg);
+	}
+	20% {
+		top: 20%;
+		right: 20%;
+		opacity: 1;
+		transform: rotate(0deg);
+	}
+	40% {
+		top: 40%;
+		right: 15%;
+		transform: rotate(0deg);
+	}
+	60% {
+		top: 60%;
+		right: 20%;
+		transform: rotate(0deg);
+	}
+	80% {
+		top: 80%;
+		right: 25%;
+		opacity: 1;
+		transform: rotate(0deg);
+	}
+	100% {
+		top: 100%;
+		right: 20%;
+		opacity: 0;
+		transform: rotate(0deg);
+	}
+}
+
+.transform-block {
+	background: red;
+	height: 100px;
+	transform: skew(1deg, 1deg);
+	border-color: yellow green blue aqua;
+	border-width: 4px;
+	border-style: solid;
+}
+
+.cube-container	{
+	min-height: 800px;
+	position: relative;
+	perspective: 200px;
+	transform-style: preserve-3d;
+}
+
+.cube {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	// transform: rotate3d(1,1,1, 45deg) rotateX(45deg) translate(-50%, -50%);
+	width: 150px;
+	height: 150px;
+	// perspective: 150px;
+	transform-style: preserve-3d;
+	animation: cube 6s linear 0s infinite;
+}
+
+.cube-part {
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	top: 0;
+	opacity: .7;
+	display: flex;
+	justify-content: center;
+	// backface-visibility: hidden;
+	align-items: center;
+	font-size: 40px;
+
+	&:nth-child(1) {
+		background-color: red;
+	}
+
+	&:nth-child(2) {
+		background-color: green;
+	    transform-origin: right center;
+    	transform: translateX(-100%) rotateY(-90deg);
+	}
+
+	&:nth-child(3) {
+		background-color: black;
+		transform-origin: left center;
+		transform: translateX(100%) rotateY(90deg);
+	}
+
+	&:nth-child(4) {
+		background-color: yellow;
+		transform-origin: center bottom;
+		transform: translateY(-100%) rotateX(90deg);
+	}
+
+	&:nth-child(5) {
+		background-color: aqua;
+		transform-origin: center top;
+		transform: translateY(100%) rotateX(-90deg);
+	}
+
+	&:nth-child(6) {
+		background-color: gray;
+		transform: translate3d(0, 0, -150px) scaleZ(-1);
+	}
+}
+
+@keyframes cube {
+	from {
+		transform: rotate3d(1, 1, 1, 0deg) translate(-50%, -50%);
+	}
+
+	to {
+		transform: rotate3d(1, 1, 1, 360deg) translate(-50%, -50%);
 	}
 }
